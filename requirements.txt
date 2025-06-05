@@ -3,5 +3,5 @@ numpy
 scikit-learn
 seaborn
 streamlit
-
--e .
+wordcloud
+nltk
