@@ -1,0 +1,5 @@
+[ 2025-06-05 18:22:03,230 ] 14 root - INFO - Loading Data for Model Training
+[ 2025-06-05 18:22:03,252 ] 16 root - INFO - Data Loaded for Training
+[ 2025-06-05 18:22:03,254 ] 24 root - INFO - Model Training Started ....
+[ 2025-06-05 18:22:03,428 ] 31 root - INFO - Model Training Completed
+[ 2025-06-05 18:22:03,448 ] 59 root - INFO - -----Trained Model Saved-----
