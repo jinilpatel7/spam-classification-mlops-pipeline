@@ -1,0 +1,5 @@
+[ 2025-06-05 12:55:43,970 ] 12 root - INFO - Data Ingestion started
+[ 2025-06-05 12:55:44,636 ] 15 root - INFO - Data Loaded
+[ 2025-06-05 12:55:44,639 ] 23 root - INFO - Basic Data Preprocessing Started
+[ 2025-06-05 12:55:44,639 ] 27 root - INFO - Basic Data Preprocessing Completed
+[ 2025-06-05 12:55:44,749 ] 41 root - INFO - Train & Test Data saved

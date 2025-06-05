@@ -1,3 +1,4 @@
 myenv/
 __pycache__
 Spam_classification_ML_Pipeline.egg-info/
+data/
