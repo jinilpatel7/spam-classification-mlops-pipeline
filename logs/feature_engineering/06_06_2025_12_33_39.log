@@ -1,0 +1,8 @@
+[ 2025-06-06 12:33:39,068 ] 17 feature_engineering - INFO - Parameters retrieved
+[ 2025-06-06 12:33:39,068 ] 25 feature_engineering - INFO - Feature Enginnering Started
+[ 2025-06-06 12:33:39,100 ] 28 feature_engineering - INFO - Data Loaded for FE
+[ 2025-06-06 12:33:39,100 ] 25 feature_engineering - INFO - Feature Enginnering Started
+[ 2025-06-06 12:33:39,116 ] 28 feature_engineering - INFO - Data Loaded for FE
+[ 2025-06-06 12:33:39,121 ] 37 feature_engineering - INFO - Applying TF-IDF Vectorization
+[ 2025-06-06 12:33:39,172 ] 55 feature_engineering - INFO - Vectorization Step Completed
+[ 2025-06-06 12:33:39,243 ] 81 feature_engineering - INFO - -----Data Saved-----

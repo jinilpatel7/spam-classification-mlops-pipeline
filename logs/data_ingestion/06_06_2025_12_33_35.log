@@ -1,0 +1,6 @@
+[ 2025-06-06 12:33:35,727 ] 18 data_ingestion - INFO - Parameters retrieved
+[ 2025-06-06 12:33:35,727 ] 26 data_ingestion - INFO - Data Ingestion started
+[ 2025-06-06 12:33:36,615 ] 29 data_ingestion - INFO - Data Loaded
+[ 2025-06-06 12:33:36,615 ] 37 data_ingestion - INFO - Basic Data Preprocessing Started
+[ 2025-06-06 12:33:36,631 ] 41 data_ingestion - INFO - Basic Data Preprocessing Completed
+[ 2025-06-06 12:33:36,663 ] 55 data_ingestion - INFO - Train & Test Data saved

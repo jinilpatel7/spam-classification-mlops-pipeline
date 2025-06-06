@@ -4,10 +4,23 @@ import pandas as pd
 from src.logger import get_logger
 from src.exception import CustomException
 
+import yaml
 
 from sklearn.model_selection import train_test_split
 
 logger = get_logger("data_ingestion")
+
+def load_params(params_path: str) -> dict:
+    """Load parameters from a YAML file."""
+    try:
+        with open(params_path, 'r') as file:
+            params = yaml.safe_load(file)
+        logger.info("Parameters retrieved")
+        return params
+    except Exception as e:
+        logger.info("Unexpected error occurred while loading parameters.")
+        raise CustomException(e, sys)
+    
 def load_data(data_url: str) -> pd.DataFrame:
     """Load That from CSV file."""
     logger.info("Data Ingestion started")
@@ -46,7 +59,8 @@ def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str)
     
 def main():
     try:
-        test_size = 0.2 
+        params = load_params(params_path='params.yaml')
+        test_size = params['data_ingestion']['test_size']
 
         data_path = "https://raw.githubusercontent.com/jinilpatel7/spam-classification-mlops-pipeline/refs/heads/main/Experiment_Notebook/spam.csv"
         df = load_data(data_url=data_path)
