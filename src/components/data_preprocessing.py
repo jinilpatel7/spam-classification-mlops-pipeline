@@ -1,5 +1,5 @@
 import os, sys
-from src.logger import logging
+from src.logger import get_logger
 from src.exception import CustomException
 
 import pandas as pd
@@ -13,7 +13,7 @@ nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
 
-
+logger = get_logger("data_preprocessing")
 stop_words = set(stopwords.words('english'))
 lemmatizer = WordNetLemmatizer()
 
@@ -29,27 +29,27 @@ def transform_text(text):
 
 def preprocess_df(df,text_column='text', target_column='target'):
     try:
-        logging.info("Data perprocessing Started")
+        logger.info("Data perprocessing Started")
         encoder = LabelEncoder()
         df[target_column] = encoder.fit_transform(df[target_column])
 
-        logging.info("Target Column Encoded")
+        logger.info("Target Column Encoded")
         df = df.drop_duplicates(keep='first')
 
-        logging.info("Duplicates Removed")
+        logger.info("Duplicates Removed")
         df.loc[:, text_column] = df[text_column].apply(transform_text)
 
-        logging.info("Text Column Transformed")
+        logger.info("Text Column Transformed")
         return df
     except Exception as e:
-        logging.info("Error in Preprocess_df")
+        logger.info("Error in Preprocess_df")
         raise CustomException(e, sys)
     
 def main(text_column='text', target_column='target'):
     try:
         train_data = pd.read_csv('./data/raw/train.csv')
         test_data = pd.read_csv('./data/raw/test.csv')
-        logging.info("Train & Test Data Loaded")
+        logger.info("Train & Test Data Loaded")
 
         train_processed_data = preprocess_df(train_data, text_column, target_column)
         test_processed_data = preprocess_df(test_data, text_column, target_column)
@@ -60,9 +60,9 @@ def main(text_column='text', target_column='target'):
         train_processed_data.to_csv(os.path.join(data_path, "train_processed.csv"), index=False)
         test_processed_data.to_csv(os.path.join(data_path, "test_processed.csv"), index=False)
 
-        logging.info("-----Processed Data Saved-----")
+        logger.info("-----Processed Data Saved-----")
     except Exception as e:
-        logging.info("Error in data perprocessing")
+        logger.info("Error in data perprocessing.")
         raise CustomException(e, sys)
     
 if __name__ == '__main__':

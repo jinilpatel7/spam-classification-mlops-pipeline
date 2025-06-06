@@ -1,32 +1,44 @@
-import os, sys, logging
+import os
+import sys
+import logging
 from datetime import datetime
 
+def get_logger(module_name: str) -> logging.Logger:
+    """
+    Returns a logger instance that writes logs to a specific directory based on the module name.
+    Example: logs/data_ingestion/04_06_2025_16_42_00.log
+    """
+    # Create log directory for the module
+    log_subdir = os.path.join("logs", module_name)
+    os.makedirs(log_subdir, exist_ok=True)
 
-# Create a log filename with the current date and time
-LOG_FILE = f"{datetime.now().strftime('%d_%m_%Y_%H_%M_%S')}.log"
+    # Log file name with timestamp
+    log_file = f"{datetime.now().strftime('%d_%m_%Y_%H_%M_%S')}.log"
+    log_path = os.path.join(log_subdir, log_file)
 
-# Define the directory where log files will be stored
-log_dir = os.path.join(os.getcwd(), "logs")
-os.makedirs(log_dir, exist_ok=True)  #Creating the log directory if it doesn't exist
+    # Create a new logger for the module
+    logger = logging.getLogger(module_name)
+    logger.setLevel(logging.INFO)
 
-LOG_FILE_PATH = os.path.join(log_dir, LOG_FILE) # Full path for the log file
+    # Prevent duplicate handlers if function is called multiple times
+    if not logger.handlers:
+        formatter = logging.Formatter("[ %(asctime)s ] %(lineno)d %(name)s - %(levelname)s - %(message)s")
 
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
+        # File handler - Create Logging in files
+        file_handler = logging.FileHandler(log_path)
+        file_handler.setFormatter(formatter)
 
-formatter = logging.Formatter("[ %(asctime)s ] %(lineno)d %(name)s - %(levelname)s - %(message)s")
+        # Stream (console) handler - Show realtime logs in terminal
+        stream_handler = logging.StreamHandler(sys.stdout)
+        stream_handler.setFormatter(formatter)
 
-# File handler - Create Logging in files
-file_handler = logging.FileHandler(LOG_FILE_PATH)
-file_handler.setFormatter(formatter)
+        # Add handlers to logger
+        logger.addHandler(file_handler)
+        logger.addHandler(stream_handler)
 
-# Stream (console) handler - Show realtime logs in terminal
-stream_handler = logging.StreamHandler(sys.stdout)
-stream_handler.setFormatter(formatter)
+    return logger
 
-# Add handlers to logger
-logger.addHandler(file_handler)
-logger.addHandler(stream_handler)
-
+# Optional for test run
 if __name__ == "__main__":
-    logging.info(" Logging Started")
+    test_logger = get_logger("test_module")
+    test_logger.info("This is a test log from test_module")

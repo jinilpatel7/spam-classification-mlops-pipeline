@@ -1,0 +1,5 @@
+[ 2025-06-06 11:38:11,686 ] 15 model_building - INFO - Loading Data for Model Training
+[ 2025-06-06 11:38:11,702 ] 17 model_building - INFO - Data Loaded for Training
+[ 2025-06-06 11:38:11,702 ] 25 model_building - INFO - Model Training Started ....
+[ 2025-06-06 11:38:11,838 ] 32 model_building - INFO - Model Training Completed
+[ 2025-06-06 11:38:11,854 ] 60 model_building - INFO - -----Trained Model Saved-----

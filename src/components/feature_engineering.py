@@ -1,26 +1,27 @@
 import os, sys
 import pandas as pd
 
-from src.logger import logging
+from src.logger import get_logger
 from src.exception import CustomException
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 
+logger = get_logger("feature_engineering")
 def load_data(file_path: str) -> pd.DataFrame:
     try:
-        logging.info("Feature Enginnering Started")
+        logger.info("Feature Enginnering Started")
         df = pd.read_csv(file_path)
         df.fillna('', inplace=True)
-        logging.info("Data Loaded for FE")
+        logger.info("Data Loaded for FE")
         return df
     except Exception as e:
-        logging.info("Unexpected error occurred while loading the preprocessed data")
+        logger.info("Unexpected error occurred while loading the preprocessed data.")
         raise CustomException(e, sys)
     
 def apply_tfidf(train_data: pd.DataFrame, test_data: pd.DataFrame, max_features: int) -> tuple:
 
     try:
-        logging.info("Applying TF-IDF Vectorization")
+        logger.info("Applying TF-IDF Vectorization")
         vectorizer = TfidfVectorizer(max_features=max_features)
 
         X_train = train_data['text'].values
@@ -38,10 +39,10 @@ def apply_tfidf(train_data: pd.DataFrame, test_data: pd.DataFrame, max_features:
         test_df = pd.DataFrame(X_test_bow.toarray())
         test_df['label'] = y_test
 
-        logging.info("Vectorization Step Completed")
+        logger.info("Vectorization Step Completed")
         return train_df, test_df
     except Exception as e:
-        logging.info("Failed to apply TF-IDF")
+        logger.info("Failed to apply TF-IDF")
         raise CustomException(e, sys)
     
 def save_data(df: pd.DataFrame, file_path: str) -> None:
@@ -63,9 +64,9 @@ def main():
 
         save_data(train_df, os.path.join("./data", "processed_final", "train_tfidf.csv"))
         save_data(test_df, os.path.join("./data", "processed_final", "test_tfidf.csv"))
-        logging.info("-----Data Saved-----")
+        logger.info("-----Data Saved-----")
     except Exception as e:
-        logging.info("Failed to complete feature engineering process")
+        logger.info("Failed to complete feature engineering process")
         raise CustomException(e, sys)
     
 if __name__ == '__main__':

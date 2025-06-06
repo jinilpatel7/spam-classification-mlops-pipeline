@@ -1,6 +1,0 @@
-[ 2025-06-05 19:39:20,791 ] 14 root - INFO - Loading Trained Model
-[ 2025-06-05 19:39:22,157 ] 17 root - INFO - Model Loaded
-[ 2025-06-05 19:39:22,157 ] 26 root - INFO - Loading Data for model evaluation
-[ 2025-06-05 19:39:22,205 ] 28 root - INFO - Data Loaded
-[ 2025-06-05 19:39:22,207 ] 36 root - INFO - Model Evaluation Started....
-[ 2025-06-05 19:39:22,244 ] 78 root - INFO - -----Model Evaluation Completed and Saved the report-----

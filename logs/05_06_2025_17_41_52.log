@@ -1,7 +1,0 @@
-[ 2025-06-05 17:41:55,475 ] 11 root - INFO - Feature Enginnering Started
-[ 2025-06-05 17:41:55,523 ] 14 root - INFO - Data Loaded for FE
-[ 2025-06-05 17:41:55,523 ] 11 root - INFO - Feature Enginnering Started
-[ 2025-06-05 17:41:55,580 ] 14 root - INFO - Data Loaded for FE
-[ 2025-06-05 17:41:55,580 ] 23 root - INFO - Applying TF-IDF Vectorization
-[ 2025-06-05 17:41:55,754 ] 41 root - INFO - Vectorization Step Completed
-[ 2025-06-05 17:41:56,175 ] 66 root - INFO - -----Data Saved-----

@@ -1,7 +1,7 @@
 import os, sys
 import pandas as pd
 
-from src.logger import logging
+from src.logger import get_logger
 from src.exception import CustomException
 
 import numpy as np
@@ -9,26 +9,27 @@ import pandas as pd
 import pickle
 from sklearn.ensemble import RandomForestClassifier
 
+logger = get_logger("model_building")
 def load_data(file_path: str) -> pd.DataFrame:
     try:
-        logging.info("Loading Data for Model Training")
+        logger.info("Loading Data for Model Training")
         df = pd.read_csv(file_path)
-        logging.info("Data Loaded for Training")
+        logger.info("Data Loaded for Training")
         return df
     except Exception as e:
-        logging.info("Unexpected error occurred while loading the processed data")
+        logger.info("Unexpected error occurred while loading the processed data.")
         raise CustomException(e, sys)
     
 def train_model(X_train: np.ndarray, y_train: np.ndarray, param: dict) -> RandomForestClassifier:
     try:
-        logging.info("Model Training Started ....")
+        logger.info("Model Training Started ....")
         if X_train.shape[0] != y_train.shape[0]:
             raise ValueError("The number of samples in X_train and y_train must be same")
         
         clf = RandomForestClassifier(n_estimators=param['n_estimators'], random_state=param['random_state'])
 
         clf.fit(X_train, y_train)
-        logging.info("Model Training Completed")
+        logger.info("Model Training Completed")
         return clf
     except Exception as e:
         raise CustomException(e, sys)
@@ -40,7 +41,7 @@ def save_model(model, file_path: str) -> None:
         with open(file_path, 'wb') as file:
             pickle.dump(model, file)
     except Exception as e:
-        logging.info("Unexpected error occurred while saving model")
+        logger.info("Unexpected error occurred while saving model")
         raise CustomException(e, sys)
     
 def main():
@@ -56,9 +57,9 @@ def main():
         model_save_path = 'models/model.pkl'
         save_model(clf, model_save_path)
 
-        logging.info("-----Trained Model Saved-----")
+        logger.info("-----Trained Model Saved-----")
     except Exception as e:
-        logging.info("Unexpected error occurred while building model")
+        logger.info("Unexpected error occurred while building model")
         raise CustomException(e, sys)
     
 if __name__ == '__main__':

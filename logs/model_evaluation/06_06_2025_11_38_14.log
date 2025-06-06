@@ -1,0 +1,6 @@
+[ 2025-06-06 11:38:14,512 ] 15 model_evaluation - INFO - Loading Trained Model
+[ 2025-06-06 11:38:14,685 ] 18 model_evaluation - INFO - Model Loaded
+[ 2025-06-06 11:38:14,685 ] 27 model_evaluation - INFO - Loading Data for model evaluation
+[ 2025-06-06 11:38:14,685 ] 29 model_evaluation - INFO - Data Loaded
+[ 2025-06-06 11:38:14,685 ] 37 model_evaluation - INFO - Model Evaluation Started....
+[ 2025-06-06 11:38:14,717 ] 79 model_evaluation - INFO - -----Model Evaluation Completed and Saved the report-----
