@@ -1,0 +1,10 @@
+[ 2025-06-06 17:59:41,191 ] 52 data_preprocessing - INFO - Train & Test Data Loaded
+[ 2025-06-06 17:59:41,191 ] 32 data_preprocessing - INFO - Data perprocessing Started
+[ 2025-06-06 17:59:41,191 ] 36 data_preprocessing - INFO - Target Column Encoded
+[ 2025-06-06 17:59:41,191 ] 39 data_preprocessing - INFO - Duplicates Removed
+[ 2025-06-06 17:59:49,599 ] 42 data_preprocessing - INFO - Text Column Transformed
+[ 2025-06-06 17:59:49,599 ] 32 data_preprocessing - INFO - Data perprocessing Started
+[ 2025-06-06 17:59:49,599 ] 36 data_preprocessing - INFO - Target Column Encoded
+[ 2025-06-06 17:59:49,599 ] 39 data_preprocessing - INFO - Duplicates Removed
+[ 2025-06-06 17:59:49,757 ] 42 data_preprocessing - INFO - Text Column Transformed
+[ 2025-06-06 17:59:49,799 ] 63 data_preprocessing - INFO - -----Processed Data Saved-----

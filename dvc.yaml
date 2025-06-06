@@ -38,5 +38,12 @@ stages:
     deps:
     - models/model.pkl
     - src/components/model_evaluation.py
-    outs:
+    metrics:
     - reports/metrics.json
+params:
+- dvclive/params.yaml
+metrics:
+- dvclive/metrics.json
+plots:
+- dvclive/plots/metrics:
+    x: step

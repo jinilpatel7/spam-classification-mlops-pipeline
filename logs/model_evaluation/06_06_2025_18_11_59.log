@@ -1,0 +1,7 @@
+[ 2025-06-06 18:11:59,482 ] 22 model_evaluation - INFO - Parameters retrieved
+[ 2025-06-06 18:11:59,482 ] 30 model_evaluation - INFO - Loading Trained Model
+[ 2025-06-06 18:12:02,743 ] 33 model_evaluation - INFO - Model Loaded
+[ 2025-06-06 18:12:02,745 ] 42 model_evaluation - INFO - Loading Data for model evaluation
+[ 2025-06-06 18:12:02,804 ] 44 model_evaluation - INFO - Data Loaded
+[ 2025-06-06 18:12:02,808 ] 52 model_evaluation - INFO - Model Evaluation Started....
+[ 2025-06-06 18:12:04,768 ] 102 model_evaluation - INFO - -----Model Evaluation Completed and Saved the report-----
